@@ -1,12 +1,13 @@
 require_relative 'controllers/сontroller_basic'
+require_relative 'controllers/player_controller'
 
 class App < ControllerBasic
 
   def run
     puts "Игра Black Jack из серии `состряпано на коленке`"
 
-    # playerController = PlayerController.new
-    # playerController.register
+    playerController = PlayerController.new
+    playerController.register
 
     loop do
       break unless confirm("Начать новую игру?")
