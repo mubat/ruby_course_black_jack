@@ -10,8 +10,8 @@ class GameSessionController < ControllerBasic
   def run
     init_game_session
     loop do 
+      break unless @session.can_continue?
       calculate
-      # break unless show_cards?
       circle
     end
     show_cards

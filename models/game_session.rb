@@ -23,4 +23,11 @@ class GameSession
   def give_card_to(person, amount = 1)
     @cards_deck.give_card_to(@person, amount)
   end
+
+  def can_continue?
+    # player wants to show
+    # or all has 3 cards
+    @player.reveal? || @player.cards.size == 3 || @dealer.cards.size = 3
+  end
+
 end
