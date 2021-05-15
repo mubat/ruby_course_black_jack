@@ -8,7 +8,8 @@ class Card
 	end
 
 	def points
-    # calculate points according name
+    # TODO need to add support of two variants of Ace
+    name.is_a? Integer ? name : 10
 	end
 
   def ==(other_card)
