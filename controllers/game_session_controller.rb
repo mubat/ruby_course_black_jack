@@ -19,7 +19,7 @@ class GameSessionController < ControllerBasic
   end
 
   def init_game_session
-    @sesion = GameSession.new(@dealer, @player)
+    @session = GameSession.new(@dealer, @player)
     @session.init
   end
 
