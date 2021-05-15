@@ -19,4 +19,8 @@ class GameSession
     @player.calculate_points
     @dealer.calculate_points
   end
+
+  def give_card_to(person, amount = 1)
+    @cards_deck.give_card_to(@person, amount)
+  end
 end

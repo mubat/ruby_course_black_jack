@@ -18,7 +18,7 @@ class CardsDeck
   end
 
   def give_card_to(person, count = 1)
-    count.times { person.get_card(take_card) }
+    count.times { person.take_card(take_card) }
   end
 
 end

@@ -13,7 +13,9 @@ class Person
     @points_amount
   end
 
-  def take_cards(cards)
+  def take_card card
+    @cards.push(card)
+  end
 
   end
 
