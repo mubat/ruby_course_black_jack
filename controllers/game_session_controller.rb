@@ -24,7 +24,7 @@ class GameSessionController < ControllerBasic
   end
 
   def calculate
-    # @session.calculate
+    @session.calculate
     # show player's points
   end
 

@@ -14,4 +14,9 @@ class GameSession
     @cards_deck.give_card_to @player, 2
     @cards_deck.give_card_to @dealer, 2
   end
+
+  def calculate
+    @player.calculate_points
+    @dealer.calculate_points
+  end
 end
