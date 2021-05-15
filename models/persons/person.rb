@@ -16,7 +16,4 @@ class Person
   def take_card card
     @cards.push(card)
   end
-
-  end
-
 end
