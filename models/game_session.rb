@@ -13,7 +13,8 @@ class GameSession
   def init
     @cards_deck.give_card_to @player, 2
     @cards_deck.give_card_to @dealer, 2
-  end
+    calculate
+end
 
   def calculate
     @player.calculate_points
