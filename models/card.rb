@@ -10,4 +10,8 @@ class Card
 	def points
     # calculate points according name
 	end
+
+  def ==(other_card)
+    other_card.instance_of?(Card) && @name == other_card.name && @suite == other_card.suited
+  end
 end

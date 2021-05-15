@@ -1,13 +1,24 @@
 require_relative 'card'
+require_relative 'cards_variety'
 
 class CardsDeck 
 
+  include CardsVariety
+
   def initialize
-    # TODO хранить или уже выданные или ещё доступные карты
+    @taken_cards = []
   end
 
   def take_card
-    # should return Card instnce
+    loop do 
+      card = Card.new(CardsVariety.DEGREE.sample, CardsVariety.SUITS.sample)
+      break unless @taken_cards.include?(card)
+    end
+    @taken_cards.push(card)
+  end
+
+  def give_card_to(person, count = 1)
+    count.times { person.get_card(take_card) }
   end
 
 end
