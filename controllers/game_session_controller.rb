@@ -11,8 +11,8 @@ class GameSessionController < ControllerBasic
     init_game_session
     loop do 
       break unless @session.can_continue?
+      ask_move
       calculate
-      circle
     end
     show_cards
     # announce_the_winner @session.winner
@@ -28,18 +28,31 @@ class GameSessionController < ControllerBasic
     # show player's points
   end
 
-  def circle
+  def ask_move
     # ask player to take cards
+    ask_player
     # ask dealer to take cards
-  end
-
-  def show_cards?
-    # player wants to show
-    # or all has 3 cards
+    ask_dealer
   end
 
   def show_cards
     # puts @dealer.cards
     # puts @player.cards
+  end
+
+  def ask_player
+    puts "Что делаем дальше?\n\t[1] Пропустить\n\t[2] Добавить карту\n\t[3] Раскрыть карты"
+    case gets.chomp.to_i
+    when 2
+      @session.give_card_to(@palyer)
+    when 3
+      @player.reveal = true
+    else  
+      puts "Действие непонятно"
+    end
+  end
+
+  def ask_dealer
+    @session.give_card_to(@dealer) if @dealer.points_amount < 17
   end
 end
