@@ -1,5 +1,6 @@
 require_relative 'controllers/сontroller_basic'
 require_relative 'controllers/player_controller'
+require_relative 'models/persons/dealer'
 
 class App < ControllerBasic
 
@@ -11,7 +12,7 @@ class App < ControllerBasic
 
     loop do
       break unless confirm("Начать новую игру?")
-      # session = GameSessionController.new(playerController.player).run
+      GameSessionController.new(Dealer.new, playerController.player).run
     end
     
     puts "Программа завершила работу."
