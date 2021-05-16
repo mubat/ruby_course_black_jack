@@ -12,13 +12,19 @@ class App < ControllerBasic
     playerController.register
 
     loop do
+      puts "У игрока сейчас #{playerController.player.money} на счету."
       break unless confirm("Начать новую игру?")
-      GameSessionController.new(Dealer.new, playerController.player).run
+      GameSessionController.new(self.dealer, playerController.player).run
     end
     
     puts "Программа завершила работу."
   end
 
+  def dealer
+    dealer = Dealer.new
+    dealer.money = 100
+    dealer
+  end
 
 end
 

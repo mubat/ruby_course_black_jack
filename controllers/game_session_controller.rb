@@ -9,20 +9,25 @@ class GameSessionController < ControllerBasic
   end
 
   def run
-    init_game_session
+    return unless init_game_session
     loop do 
       break if @session.game_ended?
       puts "\n ----------------\n"
+      puts "В банке числится $#{@session.bank}."
       show_cards
       ask_move
     end
     show_cards(true)
     announce_the_winner @session.winner
+    give_winning_to @session.winner
   end
 
   def init_game_session
     @session = GameSession.new(@dealer, @player)
     @session.init
+    return false unless make_bet(@player)
+    return false unless make_bet(@dealer)
+    true
   end
 
   def ask_move
@@ -69,5 +74,24 @@ class GameSessionController < ControllerBasic
       return 
     end
     puts "Победитель #{person}!"
+  end
+
+  def give_winning_to(person)
+    if person.nil?
+      person.money += @session.bank/2
+      @dealer.money += @session.bank/2
+    else 
+      person.money += @session.bank
+    end
+    @session.bank = 0
+  end
+
+  def make_bet(person, amount = 10)
+    if @session.make_bet(person, amount)
+      puts "Ставка в банк в размере $#{amount.to_s} была сделана игроком #{person}."
+      return true
+    end
+    puts "Игрок #{person} не смог сделать ставку"
+    false
   end
 end

@@ -7,6 +7,8 @@ class PlayerController < ControllerBasic
 
   def register
     @player = Player.new(prompt("Введите имя"))
+    @player.money = 100
+    @player
   end
 
 end

@@ -1,12 +1,13 @@
 
 class Person
-  attr_accessor :name
+  attr_accessor :name, :money
   attr_reader :cards
 
   def initialize(name)
     @points_amount = 0
     @name = name
     remove_cards
+    @money = 0
   end
 
   def points_amount

@@ -2,15 +2,17 @@ require_relative 'cards_deck'
 
 
 class GameSession
+  attr_accessor :bank
 
   def initialize(dealer, player)
     @dealer = dealer
     @player = player
     @cards_deck = CardsDeck.new
-
+    @bank = 0
   end
 
   def init
+    @bank = 0
     @player.reveal = false
     @player.remove_cards 
     @dealer.remove_cards
@@ -37,4 +39,10 @@ end
     @player.points_amount > @dealer.points_amount ? @player : @dealer
   end
 
+  def make_bet(person, amount = 10)
+    return false if person.money < amount
+    person.money -= amount
+    @bank += amount
+    true
+  end
 end
