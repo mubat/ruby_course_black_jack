@@ -11,8 +11,8 @@ class CardsDeck
 
   def take_card
     loop do 
-      card = Card.new(CardsVariety.DEGREE.sample, CardsVariety.SUITS.sample)
       break unless @taken_cards.include?(card)
+      card = Card.new(DEGREE.sample, SUITS.sample) # TODO make random cards properties
     end
     @taken_cards.push(card)
   end
