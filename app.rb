@@ -5,6 +5,9 @@ require_relative 'controllers/game_session_controller'
 require_relative 'controllers/player_controller'
 require_relative 'models/persons/dealer'
 
+##
+# Base class of the program
+# run `run` method on instance to start the program
 class App < ControllerBasic
   def run
     puts 'Игра Black Jack из серии `состряпано на коленке`'
