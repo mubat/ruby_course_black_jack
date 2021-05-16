@@ -24,7 +24,7 @@ class GameSessionController < ControllerBasic
       show_cards
       ask_move
     end
-    show_cards(true)
+    show_cards(show_opponent_cards: true)
     announce_the_winner @session.winner
     give_winning_to @session.winner
   end
@@ -45,7 +45,7 @@ class GameSessionController < ControllerBasic
     ask_dealer
   end
 
-  def show_cards(show_opponent_cards = false)
+  def show_cards(show_opponent_cards: false)
     puts "Карты у игрока #{@player}: #{@player.cards.join(' ')}. Очков: #{@player.points_amount}"
 
     printf 'Карты у Дилера: '
