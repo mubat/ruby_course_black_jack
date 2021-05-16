@@ -19,6 +19,7 @@ class GameSessionController < ControllerBasic
     end
     show_cards(true)
     announce_the_winner @session.winner
+    give_winning_to @session.winner
   end
 
   def init_game_session
@@ -69,11 +70,17 @@ class GameSessionController < ControllerBasic
 
   def announce_the_winner(person)
     if person.nil?
-      puts "Ничья. Деньги будут распределены." 
+      puts "Ничья." 
+      return 
+    end
+    puts "Победитель #{person}!"
+  end
+
+  def give_winning_to(person)
+    if person.nil?
       person.money += @session.bank/2
       @dealer.money += @session.bank/2
     else 
-      puts "Победитель #{person}!"
       person.money += @session.bank
     end
     @session.bank = 0
