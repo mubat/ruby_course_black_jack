@@ -12,6 +12,7 @@ class GameSession
   end
 
   def init
+    @bank = 0
     @player.reveal = false
     @player.remove_cards 
     @dealer.remove_cards
