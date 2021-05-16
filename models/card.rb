@@ -8,6 +8,7 @@ class Card
 
   def initialize(name, suite)
     @name = name.is_a?(Integer) ? name.to_s : name
+    @name = @name.upcase
     @suite = suite
   end
 
