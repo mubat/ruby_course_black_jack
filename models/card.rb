@@ -13,6 +13,6 @@ class Card
 	end
 
   def ==(other_card)
-    other_card.instance_of?(Card) && @name == other_card.name && @suite == other_card.suited
+    other_card.instance_of?(Card) && @name == other_card.name && @suite == other_card.suite
   end
 end
