@@ -14,11 +14,14 @@ class CardsDeck
       card = Card.new(DEGREE.sample, SUITS.sample) # TODO make random cards properties
       return card unless @taken_cards.include?(card) 
     end
-    @taken_cards.push(card)
   end
 
   def give_card_to(person, count = 1)
-    count.times { person.take_card(take_card) }
+    count.times do 
+      card = self.take_card
+      @taken_cards.push(card)
+      person.take_card(card)
+    end
   end
 
 end
