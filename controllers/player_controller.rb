@@ -1,8 +1,10 @@
-require_relative '../models/persons/player'
+# frozen_string_literal: true
 
+require_relative "../models/persons/player"
 
+##
+# Controller to manage Player activity
 class PlayerController < ControllerBasic
-
   attr_accessor :player
 
   def register
@@ -10,5 +12,4 @@ class PlayerController < ControllerBasic
     @player.money = 100
     @player
   end
-
 end

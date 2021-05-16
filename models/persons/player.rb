@@ -1,8 +1,11 @@
-require_relative 'person'
+# frozen_string_literal: true
 
+require_relative "person"
 
+##
+# Describe player, what he can do in the game.
+# :reveal - Additionaly instance store player desicion to continue the game or not
 class Player < Person
-  attr_accessor :cards
   attr_writer :reveal
 
   def initialize(name)
@@ -10,7 +13,7 @@ class Player < Person
     @reveal = false
   end
 
-  def reveal? 
+  def reveal?
     @reveal
   end
 end
