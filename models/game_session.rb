@@ -31,4 +31,11 @@ end
     @player.reveal? || @player.cards.size == 3 || @dealer.cards.size = 3
   end
 
+  def winner
+    return @dealer if @player.points_amount > 21
+    return @player if @dealer.points_amount > 21
+    return nil if @player.points_amount == @dealer.points_amount
+    @player.points_amount > @dealer.points_amount ? @player : @dealer
+  end
+
 end
