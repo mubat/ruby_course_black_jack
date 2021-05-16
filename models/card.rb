@@ -12,8 +12,10 @@ class Card
     @suite = suite
   end
 
-  def points
+  def points(prefer_ace_more: true)
     # TODO: need to add support of two variants of Ace
+    return prefer_ace_more ? 11 : 1 if name == "A"
+
     @name.match(/^\d+$/) ? @name.to_i : 10
   end
 

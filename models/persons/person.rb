@@ -25,7 +25,7 @@ class Person
 
   def points_amount
     @points_amount = 0
-    @cards.each { |card| @points_amount += card.points }
+    @cards.each { |card| @points_amount += card.points(prefer_ace_more: @points_amount < 12) }
     @points_amount
   end
 
