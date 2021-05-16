@@ -2,6 +2,8 @@
 
 require_relative 'person'
 
+##
+# Its a robot!
 class Dealer < Person
   def initialize(name = 'Дилер')
     super(name)
