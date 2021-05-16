@@ -2,12 +2,13 @@ require_relative 'cards_deck'
 
 
 class GameSession
+  attr_accessor :bank
 
   def initialize(dealer, player)
     @dealer = dealer
     @player = player
     @cards_deck = CardsDeck.new
-
+    @bank = 0
   end
 
   def init
