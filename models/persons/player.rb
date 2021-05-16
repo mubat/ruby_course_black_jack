@@ -3,7 +3,6 @@
 require_relative 'person'
 
 class Player < Person
-  attr_accessor :cards
   attr_writer :reveal
 
   def initialize(name)
