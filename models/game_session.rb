@@ -12,9 +12,11 @@ class GameSession
 
   def init
     @player.reveal = false
+    @player.remove_cards 
+    @dealer.remove_cards
     @dealer.points_amount = @player.points_amount = 0
-    @cards_deck.give_card_to(@player, 2)
-    @cards_deck.give_card_to(@dealer, 2)
+    give_card_to(@player, 2)
+    give_card_to(@dealer, 2)
     calculate
 end
 
@@ -24,7 +26,9 @@ end
   end
 
   def give_card_to(person, amount = 1)
-    @cards_deck.give_card_to(@person, amount)
+    amount.times do 
+      person.take_card(@cards_deck.take_card)
+    end
   end
 
   def game_ended?
