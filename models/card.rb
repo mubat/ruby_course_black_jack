@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 ##
-# Describe one card. 
+# Describe one card.
 # can calculate popint for itself and compare it with other card
 class Card
   attr_accessor :name, :suite
