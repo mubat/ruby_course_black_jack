@@ -12,14 +12,14 @@ class App < ControllerBasic
   def run
     puts 'Игра Black Jack из серии `состряпано на коленке`'
 
-    playerController = PlayerController.new
-    playerController.register
+    player_controller = PlayerController.new
+    player_controller.register
 
     loop do
-      puts "У игрока сейчас #{playerController.player.money} на счету."
+      puts "У игрока сейчас #{player_controller.player.money} на счету."
       break unless confirm('Начать новую игру?')
 
-      GameSessionController.new(dealer, playerController.player).run
+      GameSessionController.new(dealer, player_controller.player).run
     end
 
     puts 'Программа завершила работу.'
