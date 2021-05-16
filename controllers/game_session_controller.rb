@@ -57,17 +57,15 @@ class GameSessionController < ControllerBasic
   end
 
   def ask_player
-    puts "Что делаем дальше?\n\t[1] Пропустить\n\t[2] Добавить карту\n\t[3] Раскрыть карты"
+    puts "Что делаем дальше?\n\t[1] Добавить карту\n\t[2] Раскрыть карты\n\tлюбой символ - Пропускаем"
     case gets.chomp.to_i
     when 1
-      puts 'Пропускаем'
-    when 2
       puts "Выдать одну карту #{@player}"
       @session.give_card_to(@player)
-    when 3
+    when 2
       @player.reveal = true
     else
-      puts 'Действие непонятно. Будем считать, что пропускаем'
+      puts 'Пропускаем'
     end
   end
 
