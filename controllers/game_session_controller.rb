@@ -1,4 +1,5 @@
 require_relative 'сontroller_basic'
+require_relative '../models/game_session'
 
 class GameSessionController < ControllerBasic
 
