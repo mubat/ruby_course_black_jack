@@ -28,7 +28,7 @@ end
   def game_ended?
     # player wants to show
     # or all has 3 cards
-    @player.reveal? || @player.cards.size == 3 || @dealer.cards.size = 3
+    @player.reveal? || @player.cards.size == 3 || @dealer.cards.size == 3
   end
 
   def winner
