@@ -2,6 +2,8 @@
 
 require_relative 'cards_deck'
 
+##
+# Manage all activity of 1 game session
 class GameSession
   attr_accessor :bank
 
@@ -27,9 +29,9 @@ class GameSession
     end
   end
 
+  ##
+  # Check is player wants to open cards or some of participants has 3 cards
   def game_ended?
-    # player wants to show
-    # or all has 3 cards
     @player.reveal? || @player.cards.size == 3 || @dealer.cards.size == 3
   end
 
