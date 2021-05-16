@@ -1,4 +1,5 @@
 require_relative 'controllers/сontroller_basic'
+require_relative 'controllers/game_session_controller'
 require_relative 'controllers/player_controller'
 require_relative 'models/persons/dealer'
 
