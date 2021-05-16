@@ -12,10 +12,12 @@ class GameSessionController < ControllerBasic
     init_game_session
     loop do 
       break if @session.game_ended?
+      puts "\n ----------------\n"
+      show_cards
       ask_move
       calculate
     end
-    show_cards
+    show_cards(true)
     announce_the_winner @session.winner
   end
 
@@ -36,9 +38,16 @@ class GameSessionController < ControllerBasic
     ask_dealer
   end
 
-  def show_cards
-    # puts @dealer.cards
-    # puts @player.cards
+  def show_cards(show_opponent_cards = false)
+    puts "Карты у игрока #{@player}: " + @player.cards.join(" ")
+
+    printf "Карты у Дилера: "
+    if(show_opponent_cards)
+      puts @dealer.cards.join(" ")
+    else 
+      @dealer.cards.size.times { printf "** "}
+      puts 
+    end
   end
 
   def ask_player
