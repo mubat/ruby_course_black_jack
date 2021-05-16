@@ -13,9 +13,9 @@ class GameSessionController < ControllerBasic
     loop do 
       break if @session.game_ended?
       puts "\n ----------------\n"
+      calculate
       show_cards
       ask_move
-      calculate
     end
     show_cards(true)
     announce_the_winner @session.winner
