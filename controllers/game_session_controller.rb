@@ -3,7 +3,6 @@
 require_relative 'сontroller_basic'
 require_relative '../models/game_session'
 
-
 ##
 # Controller that manage game session activity
 # It Prints step deatils and ask the Player to make some steps
