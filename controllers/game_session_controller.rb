@@ -15,7 +15,7 @@ class GameSessionController < ControllerBasic
       calculate
     end
     show_cards
-    # announce_the_winner @session.winner
+    announce_the_winner @session.winner
   end
 
   def init_game_session
@@ -54,5 +54,10 @@ class GameSessionController < ControllerBasic
 
   def ask_dealer
     @session.give_card_to(@dealer) if @dealer.points_amount < 17
+  end
+
+  def announce_the_winner(person)
+    puts "Ничья." || return if person.nil?
+    puts "Победитель #{person}!"
   end
 end
