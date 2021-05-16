@@ -1,5 +1,6 @@
-require_relative 'person'
+# frozen_string_literal: true
 
+require_relative 'person'
 
 class Player < Person
   attr_accessor :cards
@@ -10,7 +11,7 @@ class Player < Person
     @reveal = false
   end
 
-  def reveal? 
+  def reveal?
     @reveal
   end
 end

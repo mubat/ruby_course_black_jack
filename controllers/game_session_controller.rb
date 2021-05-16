@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 require_relative 'сontroller_basic'
 require_relative '../models/game_session'
 
 class GameSessionController < ControllerBasic
-
   def initialize(dealer, player)
     @dealer = dealer
     @player = player
@@ -10,8 +11,10 @@ class GameSessionController < ControllerBasic
 
   def run
     return unless init_game_session
-    loop do 
+
+    loop do
       break if @session.game_ended?
+
       puts "\n ----------------\n"
       puts "В банке числится $#{@session.bank}."
       show_cards
@@ -27,6 +30,7 @@ class GameSessionController < ControllerBasic
     @session.init
     return false unless make_bet(@player)
     return false unless make_bet(@dealer)
+
     true
   end
 
@@ -38,14 +42,14 @@ class GameSessionController < ControllerBasic
   end
 
   def show_cards(show_opponent_cards = false)
-    puts "Карты у игрока #{@player}: #{@player.cards.join(" ")}. Очков: #{@player.points_amount}" 
+    puts "Карты у игрока #{@player}: #{@player.cards.join(' ')}. Очков: #{@player.points_amount}"
 
-    printf "Карты у Дилера: "
-    if(show_opponent_cards)
-      puts @dealer.cards.join(" ") + ". Очков: #{@dealer.points_amount}"
-    else 
-      @dealer.cards.size.times { printf "** "}
-      puts 
+    printf 'Карты у Дилера: '
+    if show_opponent_cards
+      puts @dealer.cards.join(' ') + ". Очков: #{@dealer.points_amount}"
+    else
+      @dealer.cards.size.times { printf '** ' }
+      puts
     end
   end
 
@@ -53,14 +57,14 @@ class GameSessionController < ControllerBasic
     puts "Что делаем дальше?\n\t[1] Пропустить\n\t[2] Добавить карту\n\t[3] Раскрыть карты"
     case gets.chomp.to_i
     when 1
-      puts "Пропускаем"
+      puts 'Пропускаем'
     when 2
       puts "Выдать одну карту #{@player}"
       @session.give_card_to(@player)
     when 3
       @player.reveal = true
-    else  
-      puts "Действие непонятно. Будем считать, что пропускаем"
+    else
+      puts 'Действие непонятно. Будем считать, что пропускаем'
     end
   end
 
@@ -70,17 +74,17 @@ class GameSessionController < ControllerBasic
 
   def announce_the_winner(person)
     if person.nil?
-      puts "Ничья." 
-      return 
+      puts 'Ничья.'
+      return
     end
     puts "Победитель #{person}!"
   end
 
   def give_winning_to(person)
     if person.nil?
-      person.money += @session.bank/2
-      @dealer.money += @session.bank/2
-    else 
+      person.money += @session.bank / 2
+      @dealer.money += @session.bank / 2
+    else
       person.money += @session.bank
     end
     @session.bank = 0
@@ -88,7 +92,7 @@ class GameSessionController < ControllerBasic
 
   def make_bet(person, amount = 10)
     if @session.make_bet(person, amount)
-      puts "Ставка в банк в размере $#{amount.to_s} была сделана игроком #{person}."
+      puts "Ставка в банк в размере $#{amount} была сделана игроком #{person}."
       return true
     end
     puts "Игрок #{person} не смог сделать ставку"

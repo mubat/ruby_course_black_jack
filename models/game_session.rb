@@ -1,5 +1,6 @@
-require_relative 'cards_deck'
+# frozen_string_literal: true
 
+require_relative 'cards_deck'
 
 class GameSession
   attr_accessor :bank
@@ -14,14 +15,14 @@ class GameSession
   def init
     @bank = 0
     @player.reveal = false
-    @player.remove_cards 
+    @player.remove_cards
     @dealer.remove_cards
     give_card_to(@player, 2)
     give_card_to(@dealer, 2)
-end
+  end
 
   def give_card_to(person, amount = 1)
-    amount.times do 
+    amount.times do
       person.take_card(@cards_deck.take_card)
     end
   end
@@ -36,11 +37,13 @@ end
     return @dealer if @player.points_amount > 21
     return @player if @dealer.points_amount > 21
     return nil if @player.points_amount == @dealer.points_amount
+
     @player.points_amount > @dealer.points_amount ? @player : @dealer
   end
 
   def make_bet(person, amount = 10)
     return false if person.money < amount
+
     person.money -= amount
     @bank += amount
     true
