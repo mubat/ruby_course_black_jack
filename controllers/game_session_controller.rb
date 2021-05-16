@@ -1,4 +1,4 @@
-require_relative 'controller_basic'
+require_relative 'сontroller_basic'
 
 class GameSessionController < ControllerBasic
 
