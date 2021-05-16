@@ -9,7 +9,7 @@ class GameSessionController < ControllerBasic
   end
 
   def run
-    init_game_session
+    return unless init_game_session
     loop do 
       break if @session.game_ended?
       puts "\n ----------------\n"
