@@ -10,7 +10,8 @@ class Person
   end
 
   def calculate_points
-    @cards.each { |card| @points_amount += card.points }
+    @points_amount = 0
+    @cards.each { |card| puts "#{card} = #{card.points} очков";@points_amount += card.points }
     @points_amount
   end
 
