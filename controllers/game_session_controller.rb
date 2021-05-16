@@ -24,6 +24,9 @@ class GameSessionController < ControllerBasic
   def init_game_session
     @session = GameSession.new(@dealer, @player)
     @session.init
+    return false unless make_bet(@player)
+    return false unless make_bet(@dealer)
+    true
   end
 
   def ask_move
@@ -74,5 +77,14 @@ class GameSessionController < ControllerBasic
       person.money += @session.bank
     end
     @session.bank = 0
+  end
+
+  def make_bet(person, amount = 10)
+    if @session.make_bet(person, amount)
+      puts "Ставка в банк в размере $#{amount.to_s} была сделана игроком #{person}."
+      return true
+    end
+    puts "Игрок #{person} не смог сделать ставку"
+    false
   end
 end

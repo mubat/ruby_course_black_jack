@@ -39,4 +39,10 @@ end
     @player.points_amount > @dealer.points_amount ? @player : @dealer
   end
 
+  def make_bet(person, amount = 10)
+    return false if person.money < amount
+    person.money -= amount
+    @bank += amount
+    true
+  end
 end
