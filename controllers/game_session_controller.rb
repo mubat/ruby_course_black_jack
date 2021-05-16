@@ -13,6 +13,7 @@ class GameSessionController < ControllerBasic
     loop do 
       break if @session.game_ended?
       puts "\n ----------------\n"
+      puts "В банке числится $#{@session.bank}."
       show_cards
       ask_move
     end
