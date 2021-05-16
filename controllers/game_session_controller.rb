@@ -56,6 +56,7 @@ class GameSessionController < ControllerBasic
     when 1
       puts "Пропускаем"
     when 2
+      puts "Выдать одну карту #{@player}"
       @session.give_card_to(@player)
     when 3
       @player.reveal = true
