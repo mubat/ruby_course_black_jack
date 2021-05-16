@@ -2,6 +2,8 @@
 
 require_relative '../models/persons/player'
 
+##
+# Controller to manage Player activity
 class PlayerController < ControllerBasic
   attr_accessor :player
 
