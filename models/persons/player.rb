@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'person'
+require_relative "person"
 
 ##
 # Describe player, what he can do in the game.

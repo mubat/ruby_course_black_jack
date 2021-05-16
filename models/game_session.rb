@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'cards_deck'
+require_relative "cards_deck"
 
 ##
 # Manage all activity of 1 game session

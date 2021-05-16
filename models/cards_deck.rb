@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative 'card'
-require_relative 'cards_variety'
+require_relative "card"
+require_relative "cards_variety"
 
 ##
 # Implements the deck of cards.

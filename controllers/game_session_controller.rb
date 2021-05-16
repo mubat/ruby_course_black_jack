@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative 'сontroller_basic'
-require_relative '../models/game_session'
+require_relative "сontroller_basic"
+require_relative "../models/game_session"
 
 ##
 # Controller that manage game session activity
@@ -47,11 +47,11 @@ class GameSessionController < ControllerBasic
   def show_cards(show_opponent_cards: false)
     puts "Карты у игрока #{@player}: #{@player.cards.join(' ')}. Очков: #{@player.points_amount}"
 
-    printf 'Карты у Дилера: '
+    printf "Карты у Дилера: "
     if show_opponent_cards
-      puts @dealer.cards.join(' ') + ". Очков: #{@dealer.points_amount}"
+      puts @dealer.cards.join(" ") + ". Очков: #{@dealer.points_amount}"
     else
-      @dealer.cards.size.times { printf '** ' }
+      @dealer.cards.size.times { printf "** " }
       puts
     end
   end
@@ -65,7 +65,7 @@ class GameSessionController < ControllerBasic
     when 2
       @player.reveal = true
     else
-      puts 'Пропускаем'
+      puts "Пропускаем"
     end
   end
 
@@ -75,7 +75,7 @@ class GameSessionController < ControllerBasic
 
   def announce_the_winner(person)
     if person.nil?
-      puts 'Ничья.'
+      puts "Ничья."
       return
     end
     puts "Победитель #{person}!"
