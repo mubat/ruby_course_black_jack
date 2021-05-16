@@ -39,11 +39,11 @@ class GameSessionController < ControllerBasic
   end
 
   def show_cards(show_opponent_cards = false)
-    puts "Карты у игрока #{@player}: " + @player.cards.join(" ")
+    puts "Карты у игрока #{@player}: #{@player.cards.join(" ")}. Очков: #{@player.points_amount}" 
 
     printf "Карты у Дилера: "
     if(show_opponent_cards)
-      puts @dealer.cards.join(" ")
+      puts @dealer.cards.join(" ") + ". Очков: #{@dealer.points_amount}"
     else 
       @dealer.cards.size.times { printf "** "}
       puts 
