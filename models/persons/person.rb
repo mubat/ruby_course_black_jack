@@ -4,9 +4,9 @@ class Person
   attr_reader :cards
 
   def initialize(name)
-    @cards = []
     @points_amount = 0
     @name = name
+    remove_cards
   end
 
   def calculate_points
@@ -17,6 +17,10 @@ class Person
 
   def take_card(card)
     @cards.push(card)
+  end
+
+  def remove_cards
+    @cards = []
   end
 
   def to_s
