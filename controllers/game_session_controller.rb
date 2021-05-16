@@ -66,9 +66,13 @@ class GameSessionController < ControllerBasic
 
   def announce_the_winner(person)
     if person.nil?
-      puts "Ничья." 
-      return 
+      puts "Ничья. Деньги будут распределены." 
+      person.money += @session.bank/2
+      @dealer.money += @session.bank/2
+    else 
+      puts "Победитель #{person}!"
+      person.money += @session.bank
     end
-    puts "Победитель #{person}!"
+    @session.bank = 0
   end
 end
