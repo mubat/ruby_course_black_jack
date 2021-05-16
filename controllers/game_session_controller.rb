@@ -70,7 +70,10 @@ class GameSessionController < ControllerBasic
   end
 
   def announce_the_winner(person)
-    puts "Ничья." || return if person.nil?
+    if person.nil?
+      puts "Ничья." 
+      return 
+    end
     puts "Победитель #{person}!"
   end
 end
