@@ -11,7 +11,7 @@ class GameSessionController < ControllerBasic
   def run
     init_game_session
     loop do 
-      break unless @session.can_continue?
+      break if @session.game_ended?
       ask_move
       calculate
     end
