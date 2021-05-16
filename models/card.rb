@@ -9,7 +9,7 @@ class Card
 
 	def points
     # TODO need to add support of two variants of Ace
-    @name.is_a?(Integer) ? @name : 10
+    @name.match(/^\d+$/) ? @name.to_i : 10
 	end
 
   def ==(other_card)
