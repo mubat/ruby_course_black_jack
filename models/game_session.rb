@@ -11,6 +11,8 @@ class GameSession
   end
 
   def init
+    @player.reveal = false
+    @dealer.points_amount = @player.points_amount = 0
     @cards_deck.give_card_to(@player, 2)
     @cards_deck.give_card_to(@dealer, 2)
     calculate
