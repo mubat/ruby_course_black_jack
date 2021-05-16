@@ -2,11 +2,11 @@ require_relative 'person'
 
 
 class Player < Person
-  attr_accessor :name :cards
+  attr_accessor :cards
   attr_writer :reveal
 
   def initialize(name)
-    @name = name
+    super(name)
     @reveal = false
   end
 
