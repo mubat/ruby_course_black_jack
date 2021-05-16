@@ -15,4 +15,8 @@ class Card
   def ==(other_card)
     other_card.instance_of?(Card) && @name == other_card.name && @suite == other_card.suite
   end
+
+  def to_s
+    @name.to_s + @suite
+  end
 end
