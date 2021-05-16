@@ -8,6 +8,7 @@ require_relative '../models/game_session'
 # It Prints step deatils and ask the Player to make some steps
 class GameSessionController < ControllerBasic
   def initialize(dealer, player)
+    super()
     @dealer = dealer
     @player = player
   end
