@@ -3,7 +3,7 @@ class Card
 	attr_accessor :name, :suite
 
 	def initialize(name, suite)
-    @name = name.to_i ? name.to_i : name
+    @name = name.is_a?(Integer) ? name.to_s : name
     @suite = suite
 	end
 
