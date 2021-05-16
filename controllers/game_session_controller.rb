@@ -55,7 +55,7 @@ class GameSessionController < ControllerBasic
     when 3
       @player.reveal = true
     else  
-      puts "Действие непонятно"
+      puts "Действие непонятно. Будем считать, что пропускаем"
     end
   end
 
