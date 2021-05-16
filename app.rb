@@ -13,12 +13,16 @@ class App < ControllerBasic
 
     loop do
       break unless confirm("Начать новую игру?")
-      GameSessionController.new(Dealer.new, playerController.player).run
+      GameSessionController.new(self.dealer, playerController.player).run
     end
     
     puts "Программа завершила работу."
   end
 
+  def dealer
+    dealer = Dealer.new
+    dealer.money = 100
+  end
 
 end
 
