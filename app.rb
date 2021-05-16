@@ -22,6 +22,7 @@ class App < ControllerBasic
   def dealer
     dealer = Dealer.new
     dealer.money = 100
+    dealer
   end
 
 end
