@@ -13,7 +13,6 @@ class GameSessionController < ControllerBasic
     loop do 
       break if @session.game_ended?
       puts "\n ----------------\n"
-      calculate
       show_cards
       ask_move
     end
@@ -24,11 +23,6 @@ class GameSessionController < ControllerBasic
   def init_game_session
     @session = GameSession.new(@dealer, @player)
     @session.init
-  end
-
-  def calculate
-    @session.calculate
-    # show player's points
   end
 
   def ask_move

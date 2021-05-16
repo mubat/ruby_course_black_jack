@@ -1,6 +1,6 @@
 
 class Person
-  attr_accessor :name, :points_amount
+  attr_accessor :name
   attr_reader :cards
 
   def initialize(name)
@@ -9,14 +9,15 @@ class Person
     remove_cards
   end
 
-  def calculate_points
+  def points_amount
     @points_amount = 0
-    @cards.each { |card| puts "#{card} = #{card.points} очков";@points_amount += card.points }
+    @cards.each { |card| @points_amount += card.points }
     @points_amount
   end
 
   def take_card(card)
     @cards.push(card)
+    points_amount
   end
 
   def remove_cards

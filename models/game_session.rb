@@ -14,16 +14,9 @@ class GameSession
     @player.reveal = false
     @player.remove_cards 
     @dealer.remove_cards
-    @dealer.points_amount = @player.points_amount = 0
     give_card_to(@player, 2)
     give_card_to(@dealer, 2)
-    calculate
 end
-
-  def calculate
-    @player.calculate_points
-    @dealer.calculate_points
-  end
 
   def give_card_to(person, amount = 1)
     amount.times do 
