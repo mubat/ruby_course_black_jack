@@ -5,7 +5,7 @@ require_relative "controller_utils"
 
 ##
 # Controller to manage Player activity
-class PlayerController < ControllerBasic
+class PlayerController
   include ControllerUtils
 
   attr_accessor :player

@@ -7,7 +7,7 @@ require_relative "controller_utils"
 ##
 # Controller that manage game session activity
 # It Prints step deatils and ask the Player to make some steps
-class GameSessionController < ControllerBasic
+class GameSessionController
   include ControllerUtils
 
   def initialize(dealer, player)
