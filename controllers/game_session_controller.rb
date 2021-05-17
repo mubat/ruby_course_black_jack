@@ -2,11 +2,14 @@
 
 require_relative "сontroller_basic"
 require_relative "../models/game_session"
+require_relative "controller_utils"
 
 ##
 # Controller that manage game session activity
 # It Prints step deatils and ask the Player to make some steps
 class GameSessionController < ControllerBasic
+  include ControllerUtils
+
   def initialize(dealer, player)
     super()
     @dealer = dealer
